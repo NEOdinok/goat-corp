@@ -1,9 +1,12 @@
-# React + TypeScript + Vite
+# 𝔊𝔒𝔄𝔗.ℭ𝔒ℜ𝔓
+
+Scary aesthetic for angry people
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+[![Netlify Status](https://api.netlify.com/api/v1/badges/4f4baeec-24c6-401b-bc05-25311376ed10/deploy-status)](https://app.netlify.com/sites/dev-goatcorp/deploys)
 
+Currently, two official plugins are available:
 - [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
 - [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
