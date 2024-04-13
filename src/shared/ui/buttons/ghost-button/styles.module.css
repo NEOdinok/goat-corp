@@ -1,0 +1,10 @@
+.root {
+  padding: 0;
+  border: none;
+  margin: 0;
+  background: none;
+}
+
+.root:hover {
+  cursor: pointer;
+}
