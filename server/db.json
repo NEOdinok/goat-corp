@@ -1,0 +1,16 @@
+{
+  "test": [
+    {
+      "id": 1,
+      "name": "Gosha"
+    },
+    {
+      "id": 2,
+      "name": "Nikita"
+    },
+    {
+      "id": 3,
+      "name": "Bogdan"
+    }
+  ]
+}
