@@ -1,11 +1,12 @@
 import { useState } from "react";
 import "./styles/index.css";
 
-import { Input } from "@/shared/ui";
+import { Textarea } from "@/shared/ui";
 
 export function App() {
-  const tester = () => {
-    console.log("Tester:");
+  const handleInputValue = (value: string, { name }: { name: string }) => {
+    console.log("[handleInputValue] value:", value, "name:", name);
+    setState(value);
   };
 
   const [state, setState] = useState<string>("");
@@ -15,12 +16,20 @@ export function App() {
       <h1>Goat corp</h1>
       <p>Whereas disregard and contempt for human rights have resulted</p>
 
-      <Input
+      {/* <Input
         name="email"
         value={state}
         label="Email"
         placeholder="Enter your email"
-        onValue={tester}
+        onValue={handleInputValue}
+      /> */}
+
+      <Textarea
+        name="description"
+        value={state}
+        label="Textarea"
+        placeholder="Goat corp placeholder"
+        onValue={handleInputValue}
       />
     </>
   );
