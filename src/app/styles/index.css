@@ -67,6 +67,13 @@
 
   /* Shadow xs */
   --shadow-xs: 0px 1px 2px rgb(16 24 40 / 5%);
+
+  /* Breakpoints */
+  @custom-media --xs-viewport (max-width: 599px);
+  @custom-media --s-viewport (max-width: 767px);
+  @custom-media --m-viewport (max-width: 1023px);
+  @custom-media --l-viewport (max-width: 1439px);
+  @custom-media --xl-viewport (max-width: 1919px);
 }
 
 /*
