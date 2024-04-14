@@ -4,3 +4,4 @@ export { Loading } from "./loading";
 export { Layout } from "./layout";
 export { Button } from "./buttons/button";
 export { GhostButton } from "./buttons/ghost-button";
+export { NavMenuButton } from "./buttons/nav-menu-button";
