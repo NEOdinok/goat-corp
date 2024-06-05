@@ -1,0 +1,16 @@
+.root {
+  position: relative;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.social,
+.terms {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-base-white);
+  opacity: 0.3;
+}
