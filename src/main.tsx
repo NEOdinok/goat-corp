@@ -1,7 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { RouterProvider } from "react-router-dom";
-import { appRouter } from "./app/appRouter";
+
+// import { RouterProvider } from "react-router-dom";
+// import { appRouter } from "./app/appRouter";
 
 const root = document.getElementById("root") as HTMLElement;
 
