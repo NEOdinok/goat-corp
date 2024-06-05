@@ -13,16 +13,22 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^2.2.5",
     "classnames": "^2.5.1",
+    "clsx": "^2.1.1",
     "modern-normalize": "^2.0.0",
     "postcss-custom-media": "^10.0.6",
     "postcss-import": "^16.1.0",
     "postcss-nested": "^6.0.1",
+    "query": "link:@reduxjs/toolkit/query",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.23.1",
+    "redux-persist": "^6.0.0",
+    "storage": "link:redux-persist/lib/storage"
   },
   "devDependencies": {
-    "@types/node": "^20.2.5",
+    "@types/node": "^20.11.30",
     "@types/react": "^18.0.37",
     "@types/react-dom": "^18.0.11",
     "@typescript-eslint/eslint-plugin": "^5.59.0",
