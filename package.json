@@ -15,6 +15,7 @@
   "dependencies": {
     "@ebay/nice-modal-react": "^1.2.13",
     "@reduxjs/toolkit": "^2.2.5",
+    "@trivago/prettier-plugin-sort-imports": "^4.3.0",
     "classnames": "^2.5.1",
     "clsx": "^2.1.1",
     "modern-normalize": "^2.0.0",
