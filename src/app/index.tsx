@@ -1,41 +1,37 @@
-import "./styles/index.css";
+import { Provider as ModalProvider } from "@ebay/nice-modal-react";
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { Provider as ReduxProvider } from "react-redux";
+import { RouterProvider } from "react-router-dom";
+import { PersistGate } from "redux-persist/integration/react";
 
-export function App() {
-  // const handleInputValue = (value: string, { name }: { name: string }) => {
-  //   console.log("[handleInputValue] value:", value, "name:", name);
-  //   setState(value);
-  // };
+import "@/shared/index.css";
 
-  // const [state, setState] = useState<string>("");
+// import { ThemeProvider } from '@/entities/theme'
+import { appRouter } from "./appRouter";
+import { appStore, persistedStore } from "./appStore";
 
-  return (
-    <>
-      <h1>Goat corp</h1>
-      <p>Whereas disregard and contempt for human rights have resulted</p>
+const root = document.getElementById("root") as HTMLElement;
 
-      {/* <Button size="md" variant="outlined">
-        Gosha
-      </Button>
-
-      <Button variant="link-gray">Link-gray</Button>
-
-      <GhostButton>Ghost</GhostButton> */}
-
-      {/* <Input
-        name="email"
-        value={state}
-        label="Email"
-        placeholder="Enter your email"
-        onValue={handleInputValue}
-      /> */}
-
-      {/* <Textarea
-        name="description"
-        value={state}
-        label="Textarea"
-        placeholder="Goat corp placeholder"
-        onValue={handleInputValue}
-      /> */}
-    </>
-  );
+async function initApp() {
+  // Move @mswjs worker to lazy import
+  console.log("init app");
+  // const module = await import('@/app/apiMockWorker')
+  // await module.startApiMockWorker()
 }
+
+initApp().then(() => {
+  ReactDOM.createRoot(root).render(
+    <React.StrictMode>
+      <ModalProvider>
+        <ReduxProvider store={appStore}>
+          <PersistGate loading={null} persistor={persistedStore}>
+            {/* <ThemeProvider> */}
+            <RouterProvider router={appRouter()} />
+            {/* </ThemeProvider> */}
+          </PersistGate>
+        </ReduxProvider>
+      </ModalProvider>
+    </React.StrictMode>,
+  );
+});

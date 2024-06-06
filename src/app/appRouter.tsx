@@ -1,22 +1,26 @@
-// import { type ReactElement } from "react";
+// import { featureToggleLoader } from '@/entities/featureToggle'
+// import { appStore } from './appStore'
 import { BaseLayout } from "@/layouts/BaseLayout";
 import { createBrowserRouter } from "react-router-dom";
 
-// import { LayoutBase } from "@/layouts/BaseLayout";
 import { HomePage } from "@/pages/home";
-import { ShopPage } from "@/pages/shop";
 
 export const appRouter = () =>
   createBrowserRouter([
     {
       element: BaseLayout,
       errorElement: <div>error</div>,
-      loader: async () => {
-        console.log("[appRouter] `/` async loader");
-      },
       children: [
         {
-          path: "/",
+          path: "/shop",
+          element: <>test text</>,
+        },
+        {
+          path: "/shop/cart",
+          element: <HomePage />,
+        },
+        {
+          path: "/shop/:productId",
           element: <HomePage />,
         },
       ],
@@ -24,13 +28,10 @@ export const appRouter = () =>
     {
       element: BaseLayout,
       errorElement: <div>error</div>,
-      loader: async () => {
-        console.log("[appRouter] `/shop` async loader");
-      },
       children: [
         {
-          path: "/shop",
-          element: <ShopPage />,
+          path: "/",
+          element: <HomePage />,
         },
       ],
     },
