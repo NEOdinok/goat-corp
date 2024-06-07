@@ -1,0 +1,25 @@
+.root {
+  position: absolute;
+  bottom: 0.5rem;
+  left: 50%;
+  display: flex;
+  gap: 0.25rem;
+  translate: -50%;
+}
+
+.root button {
+  all: unset;
+  display: block;
+  display: flex;
+  width: 3rem;
+  height: 3rem;
+  align-items: center;
+  justify-content: center;
+  border: 1px white solid;
+  border-radius: 100%;
+  cursor: pointer;
+
+  &:focus-visible {
+    outline: auto;
+  }
+}

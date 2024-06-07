@@ -1,0 +1,28 @@
+.root {
+  all: unset;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  display: block;
+  padding: 1rem;
+  border: 1px solid white;
+  cursor: pointer;
+  transition: background-color 100ms ease-in-out;
+
+  &:hover,
+  &:focus-visible {
+    background-color: rgb(0 0 0 / 20%);
+  }
+
+  &:focus-visible {
+    outline: auto;
+  }
+}
+
+.variant-scroll-right {
+  right: 0;
+}
+
+.variant-scroll-left {
+  left: 0;
+}
