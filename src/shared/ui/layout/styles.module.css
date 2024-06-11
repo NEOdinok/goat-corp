@@ -1,4 +1,26 @@
 .root {
   display: flex;
+  min-height: 100vh;
   flex-direction: column;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.sidebar {
+  display: flex;
+  min-width: 300px;
+}
+
+.footer {
+  text-align: center;
 }
