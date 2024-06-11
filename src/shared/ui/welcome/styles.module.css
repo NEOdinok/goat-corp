@@ -1,18 +1,78 @@
 .root {
   position: relative;
+  overflow: hidden;
+  width: calc(100% - 32px); /* subtracting margin from both sides */
+  height: calc(100% - 32px); /* subtracting margin from both top and bottom */
+  margin: 16px;
+
+  @media screen and (width >= 600px) {
+    width: calc(100% - 64px); /* subtracting margin from both sides */
+    height: calc(100% - 64px); /* subtracting margin from both top and bottom */
+    margin: 32px;
+  }
 }
 
 .background {
   position: absolute;
   z-index: -1;
-  top: 0;
-  left: 0;
   width: 100%;
   height: 100%;
-  margin: 16px;
   object-fit: cover;
+  object-position: right 50% bottom -96px;
+  opacity: 0.45;
+  transform: scale(1.8);
+
+  @media screen and (width >= 600px) {
+    top: 0;
+    left: 0;
+    object-position: right 50% top 42%;
+    transform: scale(1);
+  }
+}
+
+.content {
+  position: relative;
+  z-index: 1;
 }
 
 .logo {
+  width: 100%;
+  height: 128px;
+  margin: 220px 0 auto;
   color: white;
+
+  @media screen and (width >= 600px) {
+    margin: 10% 0 auto;
+  }
+}
+
+.menu {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.list {
+  position: relative;
+  display: flex;
+  width: 100%;
+  max-width: 180px;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 32px;
+  gap: 8px;
+  list-style-type: none;
+}
+
+.link {
+  width: fit-content;
+  padding: 4px;
+  cursor: pointer;
+}
+
+.link:hover {
+  background: white;
+  color: black;
+  text-decoration: underline;
 }
