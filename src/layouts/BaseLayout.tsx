@@ -1,5 +1,3 @@
-import { LayoutHeader } from "@/widgets/LayoutHeader";
-
 import { Layout } from "@/shared/ui";
 
 /**
@@ -11,4 +9,4 @@ import { Layout } from "@/shared/ui";
  * (2) Avoid cross-import using slot (render prop) pattern
  * Pass widgets as props to layout
  */
-export const BaseLayout = <Layout headerSlot={<LayoutHeader />} />;
+export const BaseLayout = <Layout />;

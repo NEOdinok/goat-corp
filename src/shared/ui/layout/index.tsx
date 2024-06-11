@@ -5,7 +5,7 @@ import styles from "./styles.module.css";
 
 type Props = {
   navbarSlot?: ReactNode;
-  headerSlot: ReactNode;
+  headerSlot?: ReactNode;
   bottomSlot?: ReactNode;
   announcementSlot?: ReactNode;
   sidebarSlot?: ReactNode;
