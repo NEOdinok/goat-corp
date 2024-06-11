@@ -154,3 +154,23 @@ h6 {
   height: 100%;
   isolation: isolate;
 }
+
+/*
+  10. Reset default list styles
+*/
+
+ul,
+li {
+  padding: 0;
+  margin: 0;
+  list-style-type: 0;
+  text-indent: 0;
+}
+
+/*
+  11. link styles reset
+*/
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
