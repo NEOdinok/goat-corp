@@ -1,8 +1,19 @@
 .root {
   display: flex;
-  height: 70px;
+  height: 64px;
   align-items: center;
   justify-content: space-between;
   padding: 0 16px;
-  margin-bottom: 16px;
+}
+
+.right {
+  display: flex;
+  justify-content: flex-end;
+  gap: 16px;
+}
+
+.left {
+  display: flex;
+  justify-content: flex-start;
+  gap: 16px;
 }

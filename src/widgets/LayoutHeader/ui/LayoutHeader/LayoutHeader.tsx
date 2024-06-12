@@ -10,8 +10,12 @@ interface Props {
 export const LayoutHeader: FC<Props> = ({ leftContentSlot, rightContentSlot }) => {
   return (
     <header className={styles.root}>
+      {/* <Logo /> */}
       <div className={styles.left}>{leftContentSlot}</div>
-      <div className={styles.right}>{rightContentSlot}</div>
+      <div className={styles.right}>
+        {rightContentSlot}
+        {/* {darkModeIsEnabled && <ChangeTheme />} */}
+      </div>
     </header>
   );
 };
