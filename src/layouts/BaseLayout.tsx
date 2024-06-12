@@ -2,14 +2,12 @@ import { LayoutFooter } from "@/widgets/HomeLayoutFooter";
 import { LayoutHeader } from "@/widgets/LayoutHeader";
 
 import { Layout } from "@/shared/ui";
+import { LangToggle } from "@/shared/ui/LangToggle";
 
 export const BaseLayout = (
   <Layout
     headerSlot={
-      <LayoutHeader
-        rightContentSlot={<span>EN / РУ </span>}
-        leftContentSlot={<span>МАГАЗИН</span>}
-      />
+      <LayoutHeader rightContentSlot={<LangToggle />} leftContentSlot={<span>МАГАЗИН</span>} />
     }
     bottomSlot={
       <LayoutFooter

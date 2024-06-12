@@ -1,3 +1,4 @@
+import { LangToggle } from "@/shared/ui/LangToggle";
 import { BaseRadio } from "@/shared/ui/radio";
 import { BaseSelect } from "@/shared/ui/select";
 
@@ -15,6 +16,7 @@ export const AboutPage = () => {
     >
       <BaseSelect />
       <BaseRadio />
+      <LangToggle />
     </div>
   );
 };
