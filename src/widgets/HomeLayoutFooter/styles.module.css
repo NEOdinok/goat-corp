@@ -2,15 +2,17 @@
   position: relative;
   display: flex;
   width: 100%;
+  height: 64px;
   align-items: center;
   justify-content: space-between;
+  padding: 0 16px;
 }
 
 .social,
 .terms {
   display: flex;
-  align-items: center;
+  align-items: centr;
   justify-content: center;
-  color: var(--color-base-white);
+  color: white;
   opacity: 0.3;
 }

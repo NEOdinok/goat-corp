@@ -1,20 +1,17 @@
-import { FC } from "react";
-import { Link } from "react-router-dom";
-
-import { IconInstagram, IconYoutube } from "@/shared/assets/icons";
+import { FC, ReactNode } from "react";
 
 import styles from "./styles.module.css";
 
-export const HomeLayoutFooter: FC = () => (
-  <footer className={styles.root}>
-    <div className={styles.social}>
-      <Link to="https://www.youtube.com/@goat7480" target="_blank">
-        <IconYoutube />
-      </Link>
-      <Link to="https://www.youtube.com/@goat7480" target="_blank">
-        <IconInstagram />
-      </Link>
-    </div>
-    <span className={styles.terms}>©2024 GOAT.CORP</span>
-  </footer>
-);
+interface Props {
+  leftContentSlot?: ReactNode;
+  rightContentSlot?: ReactNode;
+}
+
+export const LayoutFooter: FC<Props> = ({ leftContentSlot, rightContentSlot }) => {
+  return (
+    <footer className={styles.root}>
+      <div className={styles.left}>{leftContentSlot}</div>
+      <div className={styles.right}>{rightContentSlot}</div>
+    </footer>
+  );
+};
