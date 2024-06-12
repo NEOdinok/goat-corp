@@ -1,0 +1,51 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.item {
+  width: 25px;
+  height: 25px;
+  border: 1px solid var(--color-gray-600);
+  border-radius: 100%;
+  background-color: transparent;
+}
+
+.item:hover {
+  background-color: var(--color-gray-800);
+}
+
+.item:focus {
+  box-shadow: 0 0 0 2px var(--color-primary-200);
+}
+
+.indicator {
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.indicator::after {
+  display: block;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background-color: var(--color-primary-600);
+  content: "";
+}
+
+.demo {
+  display: flex;
+  align-items: center;
+}
+
+.label {
+  padding-left: 15px;
+  color: white;
+  font-size: 15px;
+  line-height: 1;
+}
