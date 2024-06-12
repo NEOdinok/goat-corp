@@ -12,14 +12,14 @@ export const BaseSelect = ({ className, variant }: Props) => {
   const classList = cn(styles.root, styles[`variant-${variant}`], className);
 
   return (
-    <Select.Root>
+    <Select.Root defaultValue="">
       <Select.Trigger className={cn(classList, styles.trigger)} aria-label="Size selector">
         <Select.Value placeholder="SIZE" />
         <Select.Icon />
       </Select.Trigger>
 
       <Select.Portal>
-        <Select.Content className={styles.content} side="bottom">
+        <Select.Content className={styles.content}>
           <Select.Viewport>
             <Select.Group className={styles.group}>
               <Select.Item className={styles.item} value="XL">
