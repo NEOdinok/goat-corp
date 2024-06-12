@@ -1,1 +1,1 @@
-export { LayoutHeader } from "./ui/LayoutHeader/index";
+export { LayoutHeader } from "./ui/LayoutHeader/LayoutHeader";

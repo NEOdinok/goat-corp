@@ -2,7 +2,7 @@
 
 :root {
   /* Typography */
-  --font-monospace: "Reddit Mono", monospace;
+  --font-monospace: "Noto Sans Mono", monospace;
 
   /* Color scheme */
   color-scheme: light dark;
