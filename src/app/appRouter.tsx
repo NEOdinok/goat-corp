@@ -1,6 +1,7 @@
 // import { featureToggleLoader } from '@/entities/featureToggle'
 // import { appStore } from './appStore'
 import { BaseLayout } from "@/layouts/BaseLayout";
+import { EmptyLayout } from "@/layouts/EmptyLayout";
 import { createBrowserRouter } from "react-router-dom";
 
 import { AboutPage } from "@/pages/about";
@@ -10,7 +11,7 @@ import { ShopPage } from "@/pages/shop";
 export const appRouter = () =>
   createBrowserRouter([
     {
-      element: BaseLayout,
+      element: EmptyLayout,
       errorElement: <div>error</div>,
       children: [
         {
