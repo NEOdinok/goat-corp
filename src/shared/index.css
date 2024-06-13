@@ -3,81 +3,68 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-:root {
-  /* Typography */
-  --font-monospace: "Noto Sans Mono", monospace;
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 47.4% 11.2%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 47.4% 11.2%;
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 100% 50%;
+    --destructive-foreground: 210 40% 98%;
+    --ring: 215 20.2% 65.1%;
+    --radius: 0.5rem;
+  }
 
-  /* Color scheme */
-  color-scheme: light dark;
+  .dark {
+    --background: 224 71% 4%;
+    --foreground: 213 31% 91%;
+    --muted: 223 47% 11%;
+    --muted-foreground: 215.4 16.3% 56.9%;
+    --accent: 216 34% 17%;
+    --accent-foreground: 210 40% 98%;
+    --popover: 224 71% 4%;
+    --popover-foreground: 215 20.2% 65.1%;
+    --border: 216 34% 17%;
+    --input: 216 34% 17%;
+    --card: 224 71% 4%;
+    --card-foreground: 213 31% 91%;
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 1.2%;
+    --secondary: 222.2 47.4% 11.2%;
+    --secondary-foreground: 210 40% 98%;
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 210 40% 98%;
+    --ring: 216 34% 17%;
+    --radius: 0.5rem;
+  }
+}
 
-  /* Colors */
-  --color-base-black: #000;
-  --color-base-white: #fff;
-  --color-good-black: #121212;
+@layer base {
+  * {
+    @apply border-border;
+  }
 
-  /* Primary */
-  --color-primary-50: #e4f9ec; /* Lighter, almost white-green */
-  --color-primary-100: #cbf2da; /* Very light green */
-  --color-primary-200: #b2ecc9; /* Light green */
-  --color-primary-300: #7de3a5; /* Bright light green */
-  --color-primary-600: #22b573; /* New primary color */
-  --color-primary-700: #1a9d62; /* Slightly darker */
-  --color-primary-800: #13854d; /* Even darker green */
+  body {
+    @apply bg-background text-foreground;
 
-  /* Gray */
-  --color-gray-50: #f9fafb;
-  --color-gray-100: #f2f4f7;
-  --color-gray-200: #eaecf0;
-  --color-gray-300: #d0d5dd;
-  --color-gray-500: #667085;
-  --color-gray-600: #475467;
-  --color-gray-700: #344054;
-  --color-gray-800: #1d2939;
-  --color-gray-900: #101828;
-
-  /* Error */
-  --color-error-50: #fef3f2;
-  --color-error-100: #fee4e2;
-  --color-error-300: #fda29b;
-  --color-error-500: #f04438;
-  --color-error-600: #d92d20;
-
-  /* Display xs */
-  --font-display-xs-semibold: 600 24px/32px var(--font-monospace);
-
-  /* Display md */
-  --font-display-md-semibold: 600 36px/44px var(--font-monospace);
-
-  /* Text lg */
-  --font-text-lg-regular: 400 18px/28px var(--font-monospace);
-  --font-text-lg-semibold: 600 18px/28px var(--font-monospace);
-  --font-text-lg-bold: 700 18px/28px var(--font-monospace);
-
-  /* Text md */
-  --font-text-md-regular: 400 16px/24px var(--font-monospace);
-  --font-text-md-medium: 500 16px/24px var(--font-monospace);
-  --font-text-md-semibold: 600 16px/24px var(--font-monospace);
-
-  /* Text sm */
-  --font-text-sm-regular: 400 14px/20px var(--font-monospace);
-  --font-text-sm-medium: 500 14px/20px var(--font-monospace);
-  --font-text-sm-semibold: 600 14px/20px var(--font-monospace);
-
-  /* Text xs */
-  --font-text-xs-regular: 400 12px/18px var(--font-monospace);
-  --font-text-xs-medium: 500 12px/18px var(--font-monospace);
-  --font-text-xs-semibold: 600 12px/18px var(--font-monospace);
-
-  /* Shadow xs */
-  --shadow-xs: 0px 1px 2px rgb(16 24 40 / 5%);
-
-  /* Breakpoints */
-  @custom-media --xs-viewport (max-width: 599px);
-  @custom-media --s-viewport (max-width: 767px);
-  @custom-media --m-viewport (max-width: 1023px);
-  @custom-media --l-viewport (max-width: 1439px);
-  @custom-media --xl-viewport (max-width: 1919px);
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
 }
 
 /*
