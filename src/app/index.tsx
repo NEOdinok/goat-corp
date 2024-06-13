@@ -5,6 +5,8 @@ import { Provider as ReduxProvider } from "react-redux";
 import { RouterProvider } from "react-router-dom";
 import { PersistGate } from "redux-persist/integration/react";
 
+import { ThemeProvider } from "@/widgets/ThemeProvider";
+
 import "@/shared/index.css";
 
 // import { ThemeProvider } from '@/entities/theme'
@@ -27,7 +29,9 @@ initApp().then(() => {
         <ReduxProvider store={appStore}>
           <PersistGate loading={null} persistor={persistedStore}>
             {/* <ThemeProvider> */}
-            <RouterProvider router={appRouter()} />
+            <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
+              <RouterProvider router={appRouter()} />
+            </ThemeProvider>
             {/* </ThemeProvider> */}
           </PersistGate>
         </ReduxProvider>
