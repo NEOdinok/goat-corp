@@ -1,5 +1,9 @@
 @import url("modern-normalize/modern-normalize.css");
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
   /* Typography */
   --font-monospace: "Noto Sans Mono", monospace;
