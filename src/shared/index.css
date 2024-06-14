@@ -1,8 +1,6 @@
 @import url("modern-normalize/modern-normalize.css");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+Mono:wght@100..900&display=swap");
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -32,6 +30,8 @@
   }
 
   .dark {
+    --primary: 147 67% 42%;
+    --primary-foreground: 222.2 47.4% 1.2%;
     --background: 224 71% 4%;
     --foreground: 213 31% 91%;
     --muted: 223 47% 11%;
@@ -44,8 +44,6 @@
     --input: 216 34% 17%;
     --card: 224 71% 4%;
     --card-foreground: 213 31% 91%;
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 1.2%;
     --secondary: 222.2 47.4% 11.2%;
     --secondary-foreground: 210 40% 98%;
     --destructive: 0 63% 31%;
@@ -65,103 +63,4 @@
 
     font-feature-settings: "rlig" 1, "calt" 1;
   }
-}
-
-/*
-  1. Use a more-intuitive box-sizing model.
-*/
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-/*
-  2. Remove default margin
-*/
-* {
-  margin: 0;
-}
-
-/*
-  3. Allow percentage-based heights in the application
-*/
-html,
-body {
-  height: 100%;
-}
-
-/*
-  Typographic tweaks!
-  4. Add accessible line-height
-  5. Improve text rendering
-*/
-body {
-  background-color: var(--color-good-black); /* Set the background color */
-  color: var(--color-base-white); /* Set the text color */
-  font-family: var(--font-monospace);
-  -webkit-font-smoothing: antialiased;
-}
-
-/*
-  6. Improve media defaults
-*/
-img,
-picture,
-video,
-canvas,
-svg {
-  display: block;
-  max-width: 100%;
-}
-
-/*
-  7. Remove built-in form typography styles
-*/
-input,
-button,
-textarea,
-select {
-  font: inherit;
-}
-
-/*
-  8. Avoid text overflows
-*/
-p,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  overflow-wrap: break-word;
-}
-
-/*
-  9. Create a root stacking context
-*/
-#root {
-  height: 100%;
-  isolation: isolate;
-}
-
-/*
-  10. Reset default list styles
-*/
-
-ul,
-li {
-  padding: 0;
-  margin: 0;
-  list-style-type: 0;
-  text-indent: 0;
-}
-
-/*
-  11. link styles reset
-*/
-a {
-  color: inherit;
-  text-decoration: inherit;
 }
