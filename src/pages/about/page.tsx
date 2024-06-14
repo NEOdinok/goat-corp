@@ -1,3 +1,5 @@
+import { Product } from "@/shared/ui";
+
 export const AboutPage = () => {
-  return <div style={{ padding: "1rem" }}>About</div>;
+  return <Product />;
 };
