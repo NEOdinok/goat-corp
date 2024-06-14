@@ -1,4 +1,13 @@
+import { cn } from "@/shared/lib";
+
+import placeholderImg from "../../assets/images/product-placeholder.png";
 import styles from "./styles.module.css";
+
+export interface Props {
+  className?: string | undefined;
+}
+
+export type Ref = HTMLButtonElement;
 
 const images = [
   {
@@ -24,11 +33,13 @@ const images = [
   },
 ];
 
-export const Gallery = () => {
+export const Gallery = ({ className }: Props) => {
+  const classList = cn(styles.root, className);
+
   return (
-    <section aria-label="Image Gallery" className={styles.gallery}>
+    <section aria-label="Image Gallery" className={classList}>
       {images.map(({ url, title }) => (
-        <img key={url} src={url} className={styles.image} alt={title} />
+        <img key={url} src={placeholderImg} className={styles.image} alt={title} />
       ))}
     </section>
   );
