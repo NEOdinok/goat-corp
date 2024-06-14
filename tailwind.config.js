@@ -1,10 +1,10 @@
-import { fontFamily } from 'tailwindcss/defaultTheme';
-import tailwindcssAnimate from 'tailwindcss-animate';
+const { fontFamily } = require("tailwindcss/defaultTheme")
+
 
 /** @type {import('tailwindcss').Config} */
-export default {
+module.exports = {
   darkMode: ["class"],
-  content: ["app/**/*.{ts,tsx}", "components/**/*.{ts,tsx}"],
+content: ["app/**/*.{ts,tsx}", "components/**/*.{ts,tsx}", "src/shared/ui/**/*.{ts,tsx}"],
   theme: {
     container: {
       center: true,
@@ -56,6 +56,7 @@ export default {
       },
       fontFamily: {
         sans: ["var(--font-sans)", ...fontFamily.sans],
+        mono: ['"Noto Sans Mono"'],
       },
       keyframes: {
         "accordion-down": {
@@ -73,5 +74,5 @@ export default {
       },
     },
   },
-  plugins: [tailwindcssAnimate],
-};
+  plugins: [require("tailwindcss-animate")],
+}
