@@ -1,10 +1,22 @@
-import { Button, Info, Label, RadioGroup, RadioGroupItem } from "@/shared/ui";
+import {
+  Button,
+  Info,
+  Label,
+  RadioGroup,
+  RadioGroupItem,
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/shared/ui";
 
 import { Gallery } from "../gallery";
 
 export const Product = () => {
   return (
-    <div className="grid md:grid-cols-[400px_1fr] gap-8 max-w-6xl mx-auto px-4">
+    // max-w-6xl mx-auto
+    <div className="grid md:grid-cols-[400px_1fr] gap-8 px-4">
       <div className="flex flex-col gap-8 sm:order-first ">
         <div className="flex flex-col gap-8">
           <h1 className="text-3xl font-mono font-bold">GOAT [RED SPRING 2022] НАЗВАНИЕ КРУПНО..</h1>
@@ -16,42 +28,21 @@ export const Product = () => {
           <Info content={content} />
         </div>
         <div className="grid gap-4">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-2 w-full">
-              {/* <Button size="sm">ДОБАВИТЬ В КОРЗИНУ</Button> */}
-              <Button className="w-full" variant="outline" size="sm">
-                {/* <HeartIcon className="w-4 h-4 mr-2" /> */}
-                ДОБАВИТЬ В КОРЗИНУ
-              </Button>
-            </div>
-          </div>
-          <div className="grid gap-2">
-            <Label htmlFor="color" className="text-base">
-              Color
-            </Label>
-            <RadioGroup id="color" defaultValue="black" className="flex items-center gap-2">
-              <Label
-                htmlFor="color-black"
-                className="border cursor-pointer rounded-md p-2 flex items-center gap-2 [&:has(:checked)]:bg-gray-100 dark:[&:has(:checked)]:bg-gray-800"
-              >
-                <RadioGroupItem id="color-black" value="black" />
-                Black
-              </Label>
-              <Label
-                htmlFor="color-white"
-                className="border cursor-pointer rounded-md p-2 flex items-center gap-2 [&:has(:checked)]:bg-gray-100 dark:[&:has(:checked)]:bg-gray-800"
-              >
-                <RadioGroupItem id="color-white" value="white" />
-                White
-              </Label>
-              <Label
-                htmlFor="color-blue"
-                className="border cursor-pointer rounded-md p-2 flex items-center gap-2 [&:has(:checked)]:bg-gray-100 dark:[&:has(:checked)]:bg-gray-800"
-              >
-                <RadioGroupItem id="color-blue" value="blue" />
-                Blue
-              </Label>
-            </RadioGroup>
+          <div className="flex flex-col items-center gap-2 w-full">
+            <Select>
+              <SelectTrigger>
+                <SelectValue placeholder="Размер" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="XL">XL</SelectItem>
+                <SelectItem value="L">L</SelectItem>
+                <SelectItem value="M">M</SelectItem>
+                <SelectItem value="S">S</SelectItem>
+              </SelectContent>
+            </Select>
+            <Button className="w-full" variant="outline" size="sm">
+              ДОБАВИТЬ В КОРЗИНУ
+            </Button>
           </div>
           <div className="grid gap-2">
             <Label htmlFor="size" className="text-base">
@@ -81,9 +72,7 @@ export const Product = () => {
         </div>
       </div>
       <div className="flex xs-order-first flex-col h-fit gap-4">
-        <div className="grid gap-4 overflow-auto [&_img]:shrink-0">
-          <Gallery />
-        </div>
+        <Gallery />
       </div>
     </div>
   );
