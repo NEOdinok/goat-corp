@@ -56,7 +56,8 @@ content: ["app/**/*.{ts,tsx}", "components/**/*.{ts,tsx}", "src/shared/ui/**/*.{
       },
       fontFamily: {
         sans: ["var(--font-sans)", ...fontFamily.sans],
-        mono: ['"Noto Sans Mono"'],
+        // mono: ['"Noto Sans Mono"'],
+        mono: ['"Roboto Mono"'],
       },
       keyframes: {
         "accordion-down": {
