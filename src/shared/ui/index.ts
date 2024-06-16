@@ -16,6 +16,7 @@ export { CardHeader } from "./card/header";
 export { CardContent } from "./card/content";
 export { CardDescription } from "./card/description";
 export { CardFooter } from "./card/footer";
+export { AmountSelect } from "./amount";
 export {
   Select,
   SelectContent,
