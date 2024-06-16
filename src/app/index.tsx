@@ -9,7 +9,6 @@ import { ThemeProvider } from "@/widgets/ThemeProvider";
 
 import "@/shared/index.css";
 
-// import { ThemeProvider } from '@/entities/theme'
 import { appRouter } from "./appRouter";
 import { appStore, persistedStore } from "./appStore";
 
@@ -28,11 +27,9 @@ initApp().then(() => {
       <ModalProvider>
         <ReduxProvider store={appStore}>
           <PersistGate loading={null} persistor={persistedStore}>
-            {/* <ThemeProvider> */}
             <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
               <RouterProvider router={appRouter()} />
             </ThemeProvider>
-            {/* </ThemeProvider> */}
           </PersistGate>
         </ReduxProvider>
       </ModalProvider>
