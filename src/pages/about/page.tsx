@@ -1,5 +1,3 @@
-import { Product } from "@/shared/ui";
-
 export const AboutPage = () => {
-  return <Product />;
+  return <span>About page</span>;
 };
