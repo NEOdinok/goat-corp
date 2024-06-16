@@ -1,6 +1,8 @@
 import { ReactNode } from "react";
 import { Outlet, ScrollRestoration } from "react-router-dom";
 
+import { ThemeProvider } from "@/widgets/ThemeProvider";
+
 import styles from "./styles.module.css";
 
 type Props = {
@@ -19,19 +21,21 @@ export const Layout = ({
   sidebarSlot,
 }: Props) => {
   return (
-    <div className={styles.root}>
-      {announcementSlot}
-      {navbarSlot}
-      {headerSlot}
-      <div className={styles.container}>
-        <div className={styles.content}>
-          <Outlet />
+    <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
+      <div className={styles.root}>
+        {announcementSlot}
+        {navbarSlot}
+        {headerSlot}
+        <div className={styles.container}>
+          <div className={styles.content}>
+            <Outlet />
+          </div>
+          {sidebarSlot && <aside className={styles.sidebar}>{sidebarSlot}</aside>}
         </div>
-        {sidebarSlot && <aside className={styles.sidebar}>{sidebarSlot}</aside>}
+        {/* <footer className={styles.footer}></footer> */}
+        {bottomSlot}
+        <ScrollRestoration />
       </div>
-      {/* <footer className={styles.footer}></footer> */}
-      {bottomSlot}
-      <ScrollRestoration />
-    </div>
+    </ThemeProvider>
   );
 };
