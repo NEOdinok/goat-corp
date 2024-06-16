@@ -6,6 +6,7 @@ import { createBrowserRouter } from "react-router-dom";
 
 import { AboutPage } from "@/pages/about";
 import { HomePage } from "@/pages/home";
+import { ProductPage } from "@/pages/product";
 import { ShopPage } from "@/pages/shop";
 
 export const appRouter = () =>
@@ -34,7 +35,7 @@ export const appRouter = () =>
         },
         {
           path: "/shop/:productId",
-          element: <ShopPage />,
+          element: <ProductPage />,
         },
       ],
     },
