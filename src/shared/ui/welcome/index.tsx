@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
 import { IconGoatLogo } from "@/shared/assets/icons";
-import BackgroundImage from "@/shared/assets/images/goat-home-image.jpg";
+import BackgroundImage from "@/shared/assets/images/goat-home-image.webp";
 
 import styles from "./styles.module.css";
 

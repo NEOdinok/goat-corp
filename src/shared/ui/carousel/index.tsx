@@ -1,8 +1,10 @@
 import * as React from "react";
+import Autoplay from "embla-carousel-autoplay";
 import useEmblaCarousel, { type UseEmblaCarouselType } from "embla-carousel-react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 
 import { cn } from "@/shared/lib";
+import { mockProducts } from "@/shared/lib/mock-products";
 import { Button } from "@/shared/ui/button";
 
 type CarouselApi = UseEmblaCarouselType[1];
@@ -184,9 +186,9 @@ const CarouselPrevious = React.forwardRef<HTMLButtonElement, React.ComponentProp
         variant={variant}
         size={size}
         className={cn(
-          "absolute  h-8 w-8 rounded-full",
+          "absolute h-8 w-8 rounded-full",
           orientation === "horizontal"
-            ? "-left-12 top-1/2 -translate-y-1/2"
+            ? "left-4 top-1/2 -translate-y-1/2"
             : "-top-12 left-1/2 -translate-x-1/2 rotate-90",
           className,
         )}
@@ -214,7 +216,7 @@ const CarouselNext = React.forwardRef<HTMLButtonElement, React.ComponentProps<ty
         className={cn(
           "absolute h-8 w-8 rounded-full",
           orientation === "horizontal"
-            ? "-right-12 top-1/2 -translate-y-1/2"
+            ? "right-4 top-1/2 -translate-y-1/2"
             : "-bottom-12 left-1/2 -translate-x-1/2 rotate-90",
           className,
         )}
@@ -230,6 +232,41 @@ const CarouselNext = React.forwardRef<HTMLButtonElement, React.ComponentProps<ty
 );
 CarouselNext.displayName = "CarouselNext";
 
+interface Props {
+  className?: undefined | string;
+}
+
+const BaseCarousel = ({ className }: Props) => {
+  const plugin = React.useRef(Autoplay({ delay: 2000, stopOnInteraction: true }));
+  const classList = cn(className);
+
+  return (
+    <Carousel
+      plugins={[plugin.current]}
+      className={classList}
+      onMouseEnter={plugin.current.stop}
+      onMouseLeave={plugin.current.reset}
+    >
+      <CarouselContent>
+        {mockProducts.map(({ url, src, title }) => (
+          <CarouselItem key={url}>
+            <div className="p-1">
+              <img key={url} src={src} className="w-full aspect-[1/1] object-cover" alt={title} />
+              {/* <Card>
+                <CardContent className="flex aspect-square items-center justify-center p-6">
+                  <span className="text-4xl  font-semibold">{index + 1}</span>
+                </CardContent>
+              </Card> */}
+            </div>
+          </CarouselItem>
+        ))}
+      </CarouselContent>
+      <CarouselPrevious />
+      <CarouselNext />
+    </Carousel>
+  );
+};
+
 export {
   type CarouselApi,
   Carousel,
@@ -237,4 +274,5 @@ export {
   CarouselItem,
   CarouselPrevious,
   CarouselNext,
+  BaseCarousel,
 };
