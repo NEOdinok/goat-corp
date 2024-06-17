@@ -5,7 +5,7 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 
 import { cn } from "@/shared/lib";
 import { mockProducts } from "@/shared/lib/mock-products";
-import { Button } from "@/shared/ui/button";
+import { Button } from "@/shared/ui";
 
 type CarouselApi = UseEmblaCarouselType[1];
 type UseCarouselParameters = Parameters<typeof useEmblaCarousel>;
@@ -252,11 +252,6 @@ const BaseCarousel = ({ className }: Props) => {
           <CarouselItem key={url}>
             <div className="p-1">
               <img key={url} src={src} className="w-full aspect-[1/1] object-cover" alt={title} />
-              {/* <Card>
-                <CardContent className="flex aspect-square items-center justify-center p-6">
-                  <span className="text-4xl  font-semibold">{index + 1}</span>
-                </CardContent>
-              </Card> */}
             </div>
           </CarouselItem>
         ))}
