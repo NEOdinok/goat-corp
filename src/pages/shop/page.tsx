@@ -1,5 +1,6 @@
-import { cn } from "@/shared/lib";
-import { Button, Card, CardContent, CardFooter, CardHeader, Label } from "@/shared/ui";
+import { useNavigate } from "react-router-dom";
+
+import { Button, Card, CardContent, CardFooter, Label } from "@/shared/ui";
 
 import placeholder1 from "../../shared/assets/images/shirt-1.jpg";
 import placeholder2 from "../../shared/assets/images/shirt-2.jpg";
@@ -9,7 +10,7 @@ import placeholder4 from "../../shared/assets/images/shirt-4.jpg";
 const images = [
   {
     albumId: 1,
-    id: 0,
+    uid: 100,
     title: "accusamus beatae ad facilis cum similique qui sunt",
     url: "https://via.placeholder.com/600/92c952",
     src: placeholder1,
@@ -17,7 +18,7 @@ const images = [
   },
   {
     albumId: 1,
-    id: 1,
+    uid: 111,
     title: "test odio esse rerum voluptate repudiandae",
     url: "https://via.placeholder.com/600/d32776",
     src: placeholder2,
@@ -25,7 +26,7 @@ const images = [
   },
   {
     albumId: 1,
-    id: 2,
+    uid: 222,
     title: "reprehenderit est deserunt velit ipsam",
     url: "https://via.placeholder.com/600/77asasdfih1796",
     src: placeholder3,
@@ -33,7 +34,7 @@ const images = [
   },
   {
     albumId: 1,
-    id: 3,
+    uid: 333,
     title: "test odio esse rerum voluptate repudiandae",
     url: "https://via.placeholder.com/600/d327asdfas76",
     src: placeholder2,
@@ -41,24 +42,29 @@ const images = [
   },
   {
     albumId: 1,
-    id: 4,
+    uid: 444,
     title: "test odio esse rerum voluptate repudiandae",
     url: "https://via.placeholder.com/600/d32asdfl;j776",
     src: placeholder4,
     thumbnailUrl: "https://via.placeholder.com/150/d32776qw",
   },
 ];
-
 export const ShopPage = () => {
-  const handleSelect = () => {
-    console.log("[ShopPage] select item");
+  const navigate = useNavigate();
+
+  const handleSelect = (uid: number) => {
+    navigate(`/shop/${uid}`);
   };
 
   return (
-    <div className="grid grid-cols-4 gap-4 py-0 px-4">
-      {images.map(({ title, src, url }) => (
-        <Card className={cn("")} key={url} onClick={handleSelect}>
-          <img src={src} alt={title} />
+    <div className="grid grid-cols-2 md:grid-cols-4 gap-4 py-0 px-4">
+      {images.map(({ title, src, url, uid }) => (
+        <Card className="cursor-pointer group" key={url} onClick={() => handleSelect(uid)}>
+          <img
+            src={src}
+            alt={title}
+            className="group-hover:opacity-70 group-hover:border-2 group-hover:border-primary"
+          />
           <CardContent>
             <div className="grid w-full items-center gap-4">
               <div className="flex flex-col space-y-1.5 font-mono">
@@ -66,13 +72,13 @@ export const ShopPage = () => {
               </div>
 
               <div className="flex flex-col space-y-1.5 gap-2 font-mono">
-                <Label htmlFor="framework">[2020 REDSPRING] GOAT STRASHNAYA</Label>
-                <Label className="font-mono">15 000 ₽</Label>
+                <Label className="font-mono font-normal">[2020 REDSPRING] GOAT STRASHNAYA</Label>
+                <Label className="font-mono font-normal">15 000 ₽</Label>
               </div>
             </div>
           </CardContent>
           <CardFooter className="w-full">
-            <Button className="w-full" variant="outline">
+            <Button className="w-full group-hover:bg-primary" variant="outline">
               В КОРЗИНУ
             </Button>
           </CardFooter>
