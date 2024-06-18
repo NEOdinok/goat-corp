@@ -72,13 +72,13 @@ export const ShopPage = () => {
               </div>
 
               <div className="flex flex-col space-y-1.5 gap-2 font-mono">
-                <Label className="font-mono font-normal">[2020 REDSPRING] GOAT STRASHNAYA</Label>
+                <Label className="font-mono font-normal">[2020 REDSPRING]</Label>
                 <Label className="font-mono font-normal">15 000 ₽</Label>
               </div>
             </div>
           </CardContent>
           <CardFooter className="w-full">
-            <Button className="w-full group-hover:bg-primary" variant="outline">
+            <Button className="w-full" variant="outline">
               В КОРЗИНУ
             </Button>
           </CardFooter>
