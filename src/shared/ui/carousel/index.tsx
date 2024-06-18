@@ -237,22 +237,19 @@ interface Props {
 }
 
 const BaseCarousel = ({ className }: Props) => {
-  const plugin = React.useRef(Autoplay({ delay: 2000, stopOnInteraction: true }));
+  // const plugin = React.useRef(Autoplay({ delay: 2000, stopOnInteraction: true }));
   const classList = cn(className);
 
   return (
-    <Carousel
-      plugins={[plugin.current]}
-      className={classList}
-      onMouseEnter={plugin.current.stop}
-      onMouseLeave={plugin.current.reset}
-    >
+    // auto move plugin
+    //
+    // onMouseEnter={plugin.current.stop}
+    // onMouseLeave={plugin.current.reset}
+    <Carousel className={classList}>
       <CarouselContent>
         {mockProducts.map(({ url, src, title }) => (
           <CarouselItem key={url}>
-            <div className="p-1">
-              <img key={url} src={src} className="w-full aspect-[1/1] object-cover" alt={title} />
-            </div>
+            <img key={url} src={src} className="w-full aspect-[1/1] object-cover" alt={title} />
           </CarouselItem>
         ))}
       </CarouselContent>
