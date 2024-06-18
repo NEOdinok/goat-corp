@@ -64,7 +64,7 @@ export const Input = <T extends string>({
           {
             [styles.hasError]: Boolean(error),
           },
-          className
+          className,
         )}
         value={value}
         onChange={handleChange}
