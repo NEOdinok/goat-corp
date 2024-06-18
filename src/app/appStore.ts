@@ -1,16 +1,17 @@
 import { configureStore } from "@reduxjs/toolkit";
-import storage from "redux-persist/lib/storage";
-import { rootReducer } from "./rootReducer";
 import {
-  persistStore,
-  persistReducer,
   FLUSH,
-  REHYDRATE,
   PAUSE,
   PERSIST,
   PURGE,
   REGISTER,
+  REHYDRATE,
+  persistReducer,
+  persistStore,
 } from "redux-persist";
+import storage from "redux-persist/lib/storage";
+
+import { rootReducer } from "./rootReducer";
 
 const persistConfig = {
   key: "root",

@@ -1,34 +1,20 @@
-import styles from "./styles.module.css";
+import { cn } from "@/shared/lib";
+import { mockProducts } from "@/shared/lib/mock-products";
 
-const images = [
-  {
-    albumId: 1,
-    id: 0,
-    title: "accusamus beatae ad facilis cum similique qui sunt",
-    url: "https://via.placeholder.com/600/92c952",
-    thumbnailUrl: "https://via.placeholder.com/150/92c952",
-  },
-  {
-    albumId: 1,
-    id: 1,
-    title: "reprehenderit est deserunt velit ipsam",
-    url: "https://via.placeholder.com/600/771796",
-    thumbnailUrl: "https://via.placeholder.com/150/771796",
-  },
-  {
-    albumId: 1,
-    id: 2,
-    title: "culpa odio esse rerum omnis laboriosam voluptate repudiandae",
-    url: "https://via.placeholder.com/600/d32776",
-    thumbnailUrl: "https://via.placeholder.com/150/d32776",
-  },
-];
+export interface Props {
+  className?: string | undefined;
+}
 
-export const Gallery = () => {
+export type Ref = HTMLButtonElement;
+
+export const Gallery = ({ className }: Props) => {
+  const rootStyles = "";
+  const classList = cn(rootStyles, className);
+
   return (
-    <section aria-label="Image Gallery" className={styles.gallery}>
-      {images.map(({ url, title }) => (
-        <img key={url} src={url} className={styles.image} alt={title} />
+    <section aria-label="Image Gallery" className={classList}>
+      {mockProducts.map(({ url, title, src }) => (
+        <img key={url} src={src} className="w-full aspect-[1/1] object-cover" alt={title} />
       ))}
     </section>
   );

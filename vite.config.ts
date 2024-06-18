@@ -1,19 +1,17 @@
 import react from "@vitejs/plugin-react";
-import path from "node:path";
+import autoprefixer from "autoprefixer";
+import path from "path";
+import tailwindcss from "tailwindcss";
 import { defineConfig } from "vite";
 import svgr from "vite-plugin-svgr";
 
-// https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [
-    react({
-      babel: { babelrc: true },
-    }),
-    svgr({
-      include: "**/*.svg?react",
-      exclude: "",
-    }),
-  ],
+  plugins: [react(), svgr()],
+  css: {
+    postcss: {
+      plugins: [tailwindcss, autoprefixer],
+    },
+  },
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),

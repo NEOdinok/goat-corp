@@ -7,7 +7,6 @@ import { PersistGate } from "redux-persist/integration/react";
 
 import "@/shared/index.css";
 
-// import { ThemeProvider } from '@/entities/theme'
 import { appRouter } from "./appRouter";
 import { appStore, persistedStore } from "./appStore";
 
@@ -26,9 +25,12 @@ initApp().then(() => {
       <ModalProvider>
         <ReduxProvider store={appStore}>
           <PersistGate loading={null} persistor={persistedStore}>
-            {/* <ThemeProvider> */}
+            {/*
+              Provider around RouterProvuder does not work.
+              Works only when wrapped around <Layout /> component
+              Devtools literally only show contents of .dark class only in this case
+            */}
             <RouterProvider router={appRouter()} />
-            {/* </ThemeProvider> */}
           </PersistGate>
         </ReduxProvider>
       </ModalProvider>
