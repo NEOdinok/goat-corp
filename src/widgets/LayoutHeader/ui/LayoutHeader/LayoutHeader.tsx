@@ -1,7 +1,5 @@
 import { FC, ReactNode } from "react";
 
-import styles from "./styles.module.css";
-
 interface Props {
   leftContentSlot?: ReactNode;
   rightContentSlot?: ReactNode;
@@ -9,10 +7,10 @@ interface Props {
 
 export const LayoutHeader: FC<Props> = ({ leftContentSlot, rightContentSlot }) => {
   return (
-    <header className={styles.root}>
+    <header className="flex h-16 items-center justify-between px-4">
       {/* <Logo /> */}
-      <div className={styles.left}>{leftContentSlot}</div>
-      <div className={styles.right}>
+      <div className="flex justify-start gap-4">{leftContentSlot}</div>
+      <div className="flex justify-end gap-4">
         {rightContentSlot}
         {/* {darkModeIsEnabled && <ChangeTheme />} */}
       </div>
