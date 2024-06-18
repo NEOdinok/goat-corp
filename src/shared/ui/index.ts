@@ -1,4 +1,4 @@
-export { Input } from "./input";
+export { Input } from "./inp";
 export { Textarea } from "./textarea";
 export { Loading } from "./loading";
 export { Layout } from "./layout";
@@ -17,6 +17,7 @@ export { CardHeader } from "./card/header";
 export { CardContent } from "./card/content";
 export { CardDescription } from "./card/description";
 export { CardFooter } from "./card/footer";
+export { Separator } from "./separator";
 
 export {
   Select,
@@ -38,3 +39,5 @@ export {
   CarouselNext,
   CarouselPrevious,
 } from "./carousel";
+
+export { Tabs, TabsContent, TabsList, TabsTrigger } from "./tabs";
