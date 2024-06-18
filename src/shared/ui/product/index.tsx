@@ -49,7 +49,7 @@ export const Product = () => {
               <AmountSelect className="w-full" />
             </div>
 
-            <Button className="w-full" variant="outline" size="lg">
+            <Button className="w-full text-foreground" variant="outline" size="lg">
               ДОБАВИТЬ В КОРЗИНУ
             </Button>
           </div>
