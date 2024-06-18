@@ -25,12 +25,12 @@ initApp().then(() => {
       <ModalProvider>
         <ReduxProvider store={appStore}>
           <PersistGate loading={null} persistor={persistedStore}>
-            {/* Does not work. Works only when wrapped around <Layout /> component */}
-            {/* Devtools literally only show contents of .dark class only in this case */}
-
-            {/* <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme"> */}
+            {/*
+              Provider around RouterProvuder does not work.
+              Works only when wrapped around <Layout /> component
+              Devtools literally only show contents of .dark class only in this case
+            */}
             <RouterProvider router={appRouter()} />
-            {/* </ThemeProvider> */}
           </PersistGate>
         </ReduxProvider>
       </ModalProvider>

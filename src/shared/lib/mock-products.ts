@@ -16,7 +16,7 @@ export const mockProducts = [
     albumId: 1,
     id: 2001,
     title: "reprehenderit est deserunt velit ipsam",
-    url: "https://via.placeholder.com/600/771796",
+    url: "https://via.placeholder.com/600/laksdjf1796",
     src: placeholder2,
     thumbnailUrl: "https://via.placeholder.com/150/771796",
   },
