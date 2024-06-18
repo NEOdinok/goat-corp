@@ -17,8 +17,7 @@ export const NavMenuButton: FC<Props> = ({ className, isOpened, onClick }) => {
     <Button
       type="button"
       onClick={onClick}
-      iconOnly
-      variant="tertiary-gray"
+      variant="link"
       className={cn(
         styles.root,
         {
