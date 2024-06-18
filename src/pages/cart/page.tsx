@@ -107,8 +107,8 @@ export const CartPage = () => {
               <form className="grid gap-4">
                 <div className="grid gap-2">
                   <Label htmlFor="location">Pickup Location</Label>
-                  <Select id="location">
-                    <SelectTrigger>
+                  <Select>
+                    <SelectTrigger id="location">
                       <SelectValue placeholder="Select a location" />
                     </SelectTrigger>
                     <SelectContent>
