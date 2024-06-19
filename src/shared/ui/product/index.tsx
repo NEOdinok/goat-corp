@@ -36,8 +36,8 @@ export const Product = () => {
           <div className="flex flex-col items-center gap-4 w-full">
             <div className="flex gap-4 w-full">
               <Select>
-                <SelectTrigger>
-                  <SelectValue placeholder="Размер" />
+                <SelectTrigger className="border-foreground focus-visible:border-primary">
+                  <SelectValue placeholder={<p className="text-muted-foreground">РАЗМЕР</p>} />
                 </SelectTrigger>
                 <SelectContent>
                   <SelectItem value="XL">XL</SelectItem>
