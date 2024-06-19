@@ -9,6 +9,7 @@ export { Label } from "./label";
 export { Button } from "./btn";
 export { GhostButton } from "./buttons/ghost-button";
 export { NavMenuButton } from "./buttons/nav-menu-button";
+export { Toaster } from "./toaster";
 export { RadioGroup } from "./radio/group";
 export { RadioGroupItem } from "./radio/item";
 export { Card } from "./card";

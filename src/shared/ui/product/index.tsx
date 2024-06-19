@@ -1,3 +1,5 @@
+import { toast } from "sonner";
+
 import {
   AmountSelect,
   Button,
@@ -13,6 +15,17 @@ import { BaseCarousel } from "../carousel";
 import { Gallery } from "../gallery";
 
 export const Product = () => {
+  const handleAddToCart = () => {
+    toast("ТОВАР ДОБАВЛЕН В КОРЗИНУ", {
+      description: "GOAT [RED SPRING 2022] НАЗВАНИЕ КРУПНО..",
+      duration: 2000,
+      action: {
+        label: "OK",
+        onClick: () => console.log("Undo"),
+      },
+    });
+  };
+
   return (
     <div className="grid sm:grid-cols-[400px_1fr] gap-8 sm:px-4">
       <div className="flex items-center flex-col h-fit gap-4">
@@ -20,7 +33,7 @@ export const Product = () => {
         <BaseCarousel className="block sm:hidden" />
       </div>
 
-      <div className="flex px-2 sm:px-0 flex-col sm:order-first">
+      <div className="flex px-2 sm:px-0 flex-col sm:order-first mb-16">
         <div className="flex flex-col gap-8">
           <h1 className="text-3xl font-mono font-bold">GOAT [RED SPRING 2022] НАЗВАНИЕ КРУПНО..</h1>
           <div className="flex items-center justify-between">
@@ -49,7 +62,12 @@ export const Product = () => {
               <AmountSelect className="w-full" />
             </div>
 
-            <Button className="w-full text-foreground" variant="outline" size="lg">
+            <Button
+              className="w-full text-foreground"
+              variant="outline"
+              size="lg"
+              onClick={handleAddToCart}
+            >
               ДОБАВИТЬ В КОРЗИНУ
             </Button>
           </div>

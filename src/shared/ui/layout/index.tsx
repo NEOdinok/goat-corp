@@ -3,6 +3,8 @@ import { Outlet, ScrollRestoration } from "react-router-dom";
 
 import { ThemeProvider } from "@/widgets/ThemeProvider";
 
+import { Toaster } from "@/shared/ui";
+
 import styles from "./styles.module.css";
 
 type Props = {
@@ -24,6 +26,7 @@ export const Layout = ({
   return (
     <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
       <div className={styles.root}>
+        <Toaster />
         {announcementSlot}
         {navbarSlot}
         {headerSlot}

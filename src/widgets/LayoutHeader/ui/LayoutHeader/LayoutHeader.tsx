@@ -15,7 +15,7 @@ export const LayoutHeader: FC<Props> = ({ leftContentSlot, rightContentSlot, cla
   return (
     <header className={classList}>
       {/* <Logo /> */}
-      <div className="flex justify-start gap-4">{leftContentSlot}</div>
+      <div className="flex justify-start">{leftContentSlot}</div>
       <div className="flex justify-end gap-4">
         {rightContentSlot}
         {/* {darkModeIsEnabled && <ChangeTheme />} */}
