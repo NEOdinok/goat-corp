@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import { RootState } from "@/app/appStore";
 
@@ -7,46 +7,47 @@ import { LayoutHeader } from "@/widgets/LayoutHeader";
 
 import { closeSidebar, openSidebar } from "@/entities/test/model/slice";
 
+import { IconXClose } from "@/shared/assets/icons";
+import { cn } from "@/shared/lib";
 import { useAppDispatch, useAppSelector } from "@/shared/model";
-import { Layout } from "@/shared/ui";
+import { Button, Layout } from "@/shared/ui";
 
 const HeaderNavigation = () => {
   const dispatch = useAppDispatch();
 
-  const handleKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
-    if (event.key === "Enter" || event.key === "Escape" || event.key === " ") {
-      dispatch(closeSidebar());
-    }
-  };
-
   return (
     <>
-      <div className="hidden sm:flex gap-4">
-        <Link to="/" className="font-mono hover:cursor-pointer hover:underline hover:text-primary">
+      <div className="hidden sm:flex">
+        <Link
+          to="/"
+          onClick={() => dispatch(closeSidebar())}
+          className="font-mono hover:cursor-pointer hover:underline hover:text-primary"
+        >
           ГЛАВНАЯ
         </Link>
         <Link
           to="/shop"
+          onClick={() => dispatch(closeSidebar())}
           className="font-mono hover:cursor-pointer hover:underline hover:text-primary"
         >
           МАГАЗИН
         </Link>
         <Link
           to="/about"
+          onClick={() => closeSidebar()}
           className="font-mono hover:cursor-pointer hover:underline hover:text-primary"
         >
           ЧТО ЭТО?
         </Link>
       </div>
-      <div
-        onKeyDown={handleKeyDown}
-        role="button"
-        tabIndex={0}
+      <Button
         className="sm:hidden text-2xl text-primary hover:cursor-pointer hover:underline font-mono"
         onClick={() => dispatch(openSidebar())}
+        variant="link"
+        size="fit"
       >
         МЕНЮ
-      </div>
+      </Button>
     </>
   );
 };
@@ -59,7 +60,7 @@ const HeaderRight = (
 
     <Link
       to="/cart"
-      className="font-mono text-primary hover:cursor-pointer hover:underline hover:text-primary sm:text-foreground text-2xl sm:text-base"
+      className="font-mono text-primary font-medium hover:cursor-pointer hover:underline hover:text-primary sm:text-foreground text-2xl sm:text-base"
     >
       КОРЗИНА(0)
     </Link>
@@ -96,24 +97,39 @@ const FooterRight = (
 const Sidebar = () => {
   const isSidebarOpen = useAppSelector((state: RootState) => state.test?.isSidebarOpen);
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
 
-  const handleKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
-    if (event.key === "Enter" || event.key === "Escape" || event.key === " ") {
-      dispatch(closeSidebar());
-    }
+  const handleLinkClick = (path: string) => {
+    dispatch(closeSidebar());
+    navigate(path);
   };
 
   return (
     <div
-      className="flex flex-col h-full gap-4 p-4 bg-background fixed z-[100] top-0 right-0 bottom-0 w-full overflow-y-auto"
-      style={{ display: isSidebarOpen ? "block" : "none" }}
-      onClick={() => dispatch(closeSidebar())}
-      onKeyDown={handleKeyDown}
-      role="button"
-      tabIndex={0}
+      className={cn(
+        "flex-col justify-between h-full p-4 top-0 right-0 bottom-0 fixed z-[10] w-full bg-background overflow-y-auto",
+        isSidebarOpen ? "flex sm:hidden" : "hidden",
+      )}
     >
-      <p className="font-mono text-2xl">Item 1</p>
-      <p className="font-mono text-2xl">Item 2</p>
+      <div className="flex flex-col gap-4">
+        <Button variant="ghost" size="fit" onClick={() => handleLinkClick("/")}>
+          <p className="font-mono font-bold text-3xl hover:underline-offset-1"> ГЛАВНАЯ</p>
+        </Button>
+
+        <Button variant="ghost" size="fit" onClick={() => handleLinkClick("/shop")}>
+          <p className="font-mono font-bold text-3xl hover:underline-offset-1"> МАГАЗИН</p>
+        </Button>
+
+        <Button variant="ghost" size="fit" onClick={() => handleLinkClick("/about")}>
+          <p className="font-mono font-bold text-3xl hover:underline-offset-1">ЧТО ЭТО?</p>
+        </Button>
+      </div>
+
+      <div className="flex w-full justify-end">
+        <Button variant="ghost" size="icon" onClick={() => dispatch(closeSidebar())}>
+          <IconXClose />
+        </Button>
+      </div>
     </div>
   );
 };

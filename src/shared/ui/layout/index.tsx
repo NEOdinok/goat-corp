@@ -20,6 +20,7 @@ export const Layout = ({
   announcementSlot,
   sidebarSlot,
 }: Props) => {
+  // ??? How to correctly make aside tag contain sidebar ?
   return (
     <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
       <div className={styles.root}>
