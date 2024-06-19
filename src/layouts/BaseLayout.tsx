@@ -17,7 +17,7 @@ const HeaderNavigation = () => {
 
   return (
     <>
-      <div className="hidden sm:flex">
+      <div className="hidden sm:flex gap-4">
         <Link
           to="/"
           onClick={() => dispatch(closeSidebar())}
