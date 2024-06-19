@@ -1,5 +1,4 @@
 import * as React from "react";
-import Autoplay from "embla-carousel-autoplay";
 import useEmblaCarousel, { type UseEmblaCarouselType } from "embla-carousel-react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 
@@ -237,14 +236,9 @@ interface Props {
 }
 
 const BaseCarousel = ({ className }: Props) => {
-  // const plugin = React.useRef(Autoplay({ delay: 2000, stopOnInteraction: true }));
   const classList = cn(className);
 
   return (
-    // auto move plugin
-    //
-    // onMouseEnter={plugin.current.stop}
-    // onMouseLeave={plugin.current.reset}
     <Carousel className={classList}>
       <CarouselContent>
         {mockProducts.map(({ url, src, title }) => (
