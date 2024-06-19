@@ -52,12 +52,15 @@ const HeaderNavigation = () => {
 };
 
 const HeaderRight = (
-  <div className="flex gap-4">
-    <div className="lang-switch font-mono flex gap-1 cursor-pointer">
+  <div className="gap-4 flex items-center">
+    <div className="hidden sm:flex lang-switch font-mono gap-1 cursor-pointer">
       <p className="font-mono text-primary">РУ</p>/<p className="font-mono">EN</p>
     </div>
 
-    <Link to="/cart" className="font-mono hover:cursor-pointer hover:underline hover:text-primary">
+    <Link
+      to="/cart"
+      className="font-mono text-primary hover:cursor-pointer hover:underline hover:text-primary sm:text-foreground text-2xl sm:text-base"
+    >
       КОРЗИНА(0)
     </Link>
   </div>
@@ -65,8 +68,20 @@ const HeaderRight = (
 
 const FooterLeft = (
   <div className="flex gap-4">
-    <p className="font-mono hover:cursor-pointer hover:underline hover:text-primary">INSTAGRAM</p>
-    <p className="font-mono hover:cursor-pointer hover:underline hover:text-primary">YOUTUBE</p>
+    <Link
+      to="https://www.instagram.com/goat__corp/?hl=en"
+      target="_blank"
+      className="font-mono hover:cursor-pointer hover:underline hover:text-primary"
+    >
+      INSTAGRAM
+    </Link>
+    <Link
+      to="https://www.youtube.com/@goat7480"
+      target="_blank"
+      className="font-mono hover:cursor-pointer hover:underline hover:text-primary"
+    >
+      YOUTUBE
+    </Link>
   </div>
 );
 
