@@ -20,6 +20,7 @@ export const Layout = ({
   announcementSlot,
   sidebarSlot,
 }: Props) => {
+  // ??? How to correctly make aside tag contain sidebar ?
   return (
     <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
       <div className={styles.root}>
@@ -30,7 +31,7 @@ export const Layout = ({
           <div className={styles.content}>
             <Outlet />
           </div>
-          {sidebarSlot && <aside className={styles.sidebar}>{sidebarSlot}</aside>}
+          {sidebarSlot && <aside>{sidebarSlot}</aside>}
         </div>
         {/* <footer className={styles.footer}></footer> */}
         {bottomSlot}

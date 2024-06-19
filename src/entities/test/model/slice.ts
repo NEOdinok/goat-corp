@@ -1,8 +1,15 @@
-import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
+import { type PayloadAction, createSlice } from "@reduxjs/toolkit";
+
 import { Test } from "./types";
 
-const initialState = {
+interface TestState {
+  items: Array<Test>;
+  isSidebarOpen: boolean;
+}
+
+const initialState: TestState = {
   items: [],
+  isSidebarOpen: false,
 };
 
 export const testSlice = createSlice({
@@ -12,7 +19,16 @@ export const testSlice = createSlice({
     testReducer: (state, action: PayloadAction<Test>) => {
       console.log("state:", state, "action:", action);
     },
+    openSidebar(state) {
+      state.isSidebarOpen = true;
+    },
+    closeSidebar(state) {
+      state.isSidebarOpen = false;
+    },
+    toggleSidebar(state) {
+      state.isSidebarOpen = !state.isSidebarOpen;
+    },
   },
 });
 
-export const { testReducer } = testSlice.actions;
+export const { openSidebar, closeSidebar, toggleSidebar } = testSlice.actions;

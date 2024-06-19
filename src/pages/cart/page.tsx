@@ -25,7 +25,7 @@ import speed2 from "../../shared/assets/images/speed2.gif";
 export const CartPage = () => {
   return (
     // <div className="grid md:grid-cols-[1fr_320px] gap-8 max-w-6xl mx-auto py-12 px-4 md:px-0">
-    <div className="grid md:grid-cols-[1fr_450px] gap-8 py-12  px-4">
+    <div className="grid md:grid-cols-[1fr_450px] gap-8 py-4 px-2">
       <div className="grid gap-8">
         <Card>
           {/* <CardHeader>
@@ -76,7 +76,12 @@ export const CartPage = () => {
             <form className="grid gap-4">
               <BaseFormInput label="ФИО" fieldName="name" placeholder="ФИО" />
               <BaseFormInput label="МЫЛО" fieldName="email" placeholder="МЫЛО" />
-              <BaseFormInput label="ТЕЛЕФОН" fieldName="phone" placeholder="ТЕЛЕФОН" />
+              <BaseFormInput
+                label="ТЕЛЕФОН"
+                fieldName="phone"
+                type="number"
+                placeholder="ТЕЛЕФОН"
+              />
             </form>
           </CardContent>
         </Card>
@@ -95,6 +100,7 @@ export const CartPage = () => {
                 САМОВЫВОЗ
               </TabsTrigger>
             </TabsList>
+
             <TabsContent value="delivery">
               <form className="grid gap-4">
                 <BaseFormInput label="АДРЕС" fieldName="address" placeholder="АДРЕС" />
@@ -103,18 +109,24 @@ export const CartPage = () => {
                 <BaseFormInput label="ИНДЕКС" fieldName="zip" placeholder="ИНДЕКС" />
               </form>
             </TabsContent>
+
             <TabsContent value="pickup">
               <form className="grid gap-4">
                 <div className="grid gap-2">
-                  <Label htmlFor="location">Pickup Location</Label>
+                  <Label htmlFor="location" className="font-mono">
+                    МЕСТО САМОВЫВОЗА
+                  </Label>
                   <Select>
+                    {/* text-primary affect placeholder and selected text*/}
                     <SelectTrigger id="location">
-                      <SelectValue placeholder="Select a location" />
+                      <SelectValue
+                        placeholder={<p className="text-muted-foreground">ВЫБЕРИТЕ ГДЕ</p>}
+                      />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="location1">Location 1</SelectItem>
-                      <SelectItem value="location2">Location 2</SelectItem>
-                      <SelectItem value="location3">Location 3</SelectItem>
+                      <SelectItem value="location1">Наверное тут</SelectItem>
+                      <SelectItem value="location2">Не будет</SelectItem>
+                      <SelectItem value="location3">Селекта вообще</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
@@ -134,7 +146,9 @@ export const CartPage = () => {
                   </Label>
                   <Select>
                     <SelectTrigger id="time">
-                      <SelectValue placeholder="Select a time" />
+                      <SelectValue
+                        placeholder={<p className="text-muted-foreground">ВЫБЕРИТЕ ВРЕМЯ</p>}
+                      />
                     </SelectTrigger>
                     <SelectContent>
                       <SelectItem value="9am">9:00 AM</SelectItem>
@@ -207,16 +221,16 @@ export const CartPage = () => {
           <Button variant="outline">ИЗМЕНИТЬ</Button>
         </div>
         <div className="grid gap-2">
-          <div className="flex justify-between">
+          <div className="flex justify-between font-mono">
             <span>ТОВАРЫ</span>
             <span>150 000 ₽</span>
           </div>
-          <div className="flex justify-between">
+          <div className="flex justify-between font-mono">
             <span>ДОСТАВКА</span>
             <span>400 ₽</span>
           </div>
           <Separator />
-          <div className="flex justify-between font-medium">
+          <div className="flex justify-between font-medium font-mono">
             <span>ИТОГО</span>
             <span>5700 ₽</span>
           </div>
@@ -237,17 +251,19 @@ const BaseFormInput = ({
   fieldName,
   label,
   placeholder,
+  type,
 }: {
   fieldName: string;
   label: string;
   placeholder?: string;
+  type?: string;
 }) => {
   return (
     <div className="grid gap-2">
       <Label htmlFor={fieldName} className="font-mono">
         {label}
       </Label>
-      <Input id={fieldName} placeholder={placeholder} className="font-mono" />
+      <Input id={fieldName} placeholder={placeholder} className="font-mono" type={type} />
     </div>
   );
 };

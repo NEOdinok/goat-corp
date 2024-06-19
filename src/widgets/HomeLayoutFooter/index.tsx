@@ -1,7 +1,5 @@
 import { FC, ReactNode } from "react";
 
-import styles from "./styles.module.css";
-
 interface Props {
   leftContentSlot?: ReactNode;
   rightContentSlot?: ReactNode;
@@ -9,9 +7,9 @@ interface Props {
 
 export const LayoutFooter: FC<Props> = ({ leftContentSlot, rightContentSlot }) => {
   return (
-    <footer className={styles.root}>
-      <div className={styles.left}>{leftContentSlot}</div>
-      <div className={styles.right}>{rightContentSlot}</div>
+    <footer className="hidden sm:flex w-full justify-between items-center px-4 h-16">
+      <div className="flex justify-end gap-4">{leftContentSlot}</div>
+      <div className="flex justify-end gap-4">{rightContentSlot}</div>
     </footer>
   );
 };

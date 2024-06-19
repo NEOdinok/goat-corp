@@ -14,13 +14,13 @@ import { Gallery } from "../gallery";
 
 export const Product = () => {
   return (
-    <div className="grid sm:grid-cols-[400px_1fr] gap-8 px-4">
+    <div className="grid sm:grid-cols-[400px_1fr] gap-8 sm:px-4">
       <div className="flex items-center flex-col h-fit gap-4">
         <Gallery className="hidden sm:flex sm:flex-col md:grid md:grid-cols-2 gap-4" />
         <BaseCarousel className="block sm:hidden" />
       </div>
 
-      <div className="flex flex-col sm:order-first">
+      <div className="flex px-2 sm:px-0 flex-col sm:order-first">
         <div className="flex flex-col gap-8">
           <h1 className="text-3xl font-mono font-bold">GOAT [RED SPRING 2022] НАЗВАНИЕ КРУПНО..</h1>
           <div className="flex items-center justify-between">
@@ -36,8 +36,8 @@ export const Product = () => {
           <div className="flex flex-col items-center gap-4 w-full">
             <div className="flex gap-4 w-full">
               <Select>
-                <SelectTrigger>
-                  <SelectValue placeholder="Размер" />
+                <SelectTrigger className="border-foreground focus-visible:border-primary">
+                  <SelectValue placeholder={<p className="text-muted-foreground">РАЗМЕР</p>} />
                 </SelectTrigger>
                 <SelectContent>
                   <SelectItem value="XL">XL</SelectItem>

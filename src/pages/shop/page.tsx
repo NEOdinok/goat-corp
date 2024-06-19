@@ -57,7 +57,7 @@ export const ShopPage = () => {
   };
 
   return (
-    <div className="grid grid-cols-2 md:grid-cols-4 gap-4 py-0 px-4">
+    <div className="grid grid-cols-2 md:grid-cols-4 gap-2 sm:gap-4 py-2 px-2 sm:py-0">
       {images.map(({ title, src, url, uid }) => (
         <Card className="cursor-pointer group" key={url} onClick={() => handleSelect(uid)}>
           <img

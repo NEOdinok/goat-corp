@@ -1,4 +1,4 @@
-import { baseApi, TEST_TAG } from "@/shared/api";
+import { TEST_TAG, baseApi } from "@/shared/api";
 
 export const cartApi = baseApi.injectEndpoints({
   endpoints: (build) => ({
