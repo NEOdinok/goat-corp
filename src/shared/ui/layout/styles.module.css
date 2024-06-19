@@ -16,11 +16,6 @@
   flex-grow: 1;
 }
 
-.sidebar {
-  display: flex;
-  min-width: 300px;
-}
-
 .footer {
   text-align: center;
 }

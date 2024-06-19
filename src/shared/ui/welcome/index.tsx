@@ -15,14 +15,29 @@ export const Welcome = () => {
 
         <div className={styles.menu}>
           <ul className={styles.list}>
-            <Link className={styles.link} to="/">
-              RED SPRING [2022]
-            </Link>
-            <Link to="/shop" className={styles.link}>
-              Store
-            </Link>
-            <li className={styles.link}>
-              <Link to="/about">About</Link>
+            <li>
+              <Link
+                className="font-mono cursor-pointer p-2 w-fit hover:bg-foreground hover:text-background hover:underline"
+                to="/"
+              >
+                RED SPRING [2022]
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/shop"
+                className="font-mono cursor-pointer p-2 w-fit hover:bg-foreground hover:text-background hover:underline"
+              >
+                Store
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/about"
+                className="font-mono cursor-pointer p-2 w-fit hover:bg-foreground hover:text-background hover:underline"
+              >
+                About
+              </Link>
             </li>
           </ul>
         </div>

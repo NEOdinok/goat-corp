@@ -30,7 +30,7 @@ export const Layout = ({
           <div className={styles.content}>
             <Outlet />
           </div>
-          {sidebarSlot && <aside className={styles.sidebar}>{sidebarSlot}</aside>}
+          {sidebarSlot && <aside>{sidebarSlot}</aside>}
         </div>
         {/* <footer className={styles.footer}></footer> */}
         {bottomSlot}
