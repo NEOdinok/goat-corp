@@ -1,3 +1,6 @@
+import { useEffect } from "react";
+
+import { useGetServiceDataQuery } from "@/shared/api/baseApi";
 import { mockProducts } from "@/shared/lib/mock-products";
 import {
   AmountSelect,
@@ -21,6 +24,27 @@ import {
 } from "@/shared/ui";
 
 import speed2 from "../../shared/assets/images/speed2.gif";
+
+const BaseFormInput = ({
+  fieldName,
+  label,
+  placeholder,
+  type,
+}: {
+  fieldName: string;
+  label: string;
+  placeholder?: string;
+  type?: string;
+}) => {
+  return (
+    <div className="grid gap-2">
+      <Label htmlFor={fieldName} className="font-mono">
+        {label}
+      </Label>
+      <Input id={fieldName} placeholder={placeholder} className="font-mono" type={type} />
+    </div>
+  );
+};
 
 const CheckoutBlockCart = () => {
   return (
@@ -216,37 +240,29 @@ const CheckoutBlockTotal = () => {
 };
 
 export const CartPage = () => {
+  const { data, error, isLoading } = useGetServiceDataQuery();
+
+  // useEffect(() => {
+  //   new window.CDEKWidget({
+  //     from: "Новосибирск",
+  //     root: "cdek-map",
+  //     apiKey: "yandex-api-key",
+  //     servicePath: "../../entities/test/lib/service.php",
+  //     defaultLocation: "Новосибирск",
+  //   });
+  // });
+
   return (
     // <div className="grid md:grid-cols-[1fr_320px] gap-8 max-w-6xl mx-auto py-12 px-4 md:px-0">
     <div className="grid md:grid-cols-[1fr_450px] gap-8 py-4 px-2">
       <div className="grid gap-8">
+        Endpoint data: {data}
         <CheckoutBlockCart />
         <CheckoutBlockContacts />
         <CheckoutBlockDelivery />
         <CheckoutBlockPayment />
       </div>
       <CheckoutBlockTotal />
-    </div>
-  );
-};
-
-const BaseFormInput = ({
-  fieldName,
-  label,
-  placeholder,
-  type,
-}: {
-  fieldName: string;
-  label: string;
-  placeholder?: string;
-  type?: string;
-}) => {
-  return (
-    <div className="grid gap-2">
-      <Label htmlFor={fieldName} className="font-mono">
-        {label}
-      </Label>
-      <Input id={fieldName} placeholder={placeholder} className="font-mono" type={type} />
     </div>
   );
 };

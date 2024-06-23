@@ -10,7 +10,8 @@
     "lint:js": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "lint:css": "stylelint \"**/*.css\"",
     "preview": "vite preview",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "start": "concurrently \"json-server server/db.json --port 3000\" \"php -S localhost:3001\" \"vite\""
   },
   "dependencies": {
     "@ebay/nice-modal-react": "^1.2.13",
@@ -51,6 +52,9 @@
     "@typescript-eslint/eslint-plugin": "^5.62.0",
     "@typescript-eslint/parser": "^5.62.0",
     "@vitejs/plugin-react": "^4.2.1",
+
+    "concurrently": "^8.2.2",
+    "json-server": "1.0.0-beta.1",
     "autoprefixer": "^10.4.19",
     "eslint": "^8.57.0",
     "eslint-config-prettier": "^8.8.0",
