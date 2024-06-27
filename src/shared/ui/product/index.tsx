@@ -1,5 +1,6 @@
 import { toast } from "sonner";
 
+import { usePostTestFunctionDataMutation } from "@/shared/api/baseApi";
 import {
   AmountSelect,
   Button,
@@ -15,7 +16,9 @@ import { BaseCarousel } from "../carousel";
 import { Gallery } from "../gallery";
 
 export const Product = () => {
-  const handleAddToCart = () => {
+  const [postTestFunctionData, { data }] = usePostTestFunctionDataMutation();
+
+  const handleToast = () => {
     toast("ТОВАР ДОБАВЛЕН В КОРЗИНУ", {
       description: "GOAT [RED SPRING 2022] НАЗВАНИЕ КРУПНО..",
       duration: 2000,
@@ -24,6 +27,16 @@ export const Product = () => {
         onClick: () => console.log("Undo"),
       },
     });
+  };
+
+  const handleButtonClick = async () => {
+    try {
+      await postTestFunctionData({}).unwrap();
+      handleToast();
+      console.log("Success:", data);
+    } catch (err) {
+      console.error("Error:", err);
+    }
   };
 
   return (
@@ -66,7 +79,7 @@ export const Product = () => {
               className="w-full text-foreground"
               variant="outline"
               size="lg"
-              onClick={handleAddToCart}
+              onClick={handleButtonClick}
             >
               ДОБАВИТЬ В КОРЗИНУ
             </Button>

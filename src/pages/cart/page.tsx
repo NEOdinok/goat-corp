@@ -1,6 +1,3 @@
-import { useEffect } from "react";
-
-import { useGetServiceDataQuery } from "@/shared/api/baseApi";
 import { mockProducts } from "@/shared/lib/mock-products";
 import {
   AmountSelect,
@@ -240,23 +237,16 @@ const CheckoutBlockTotal = () => {
 };
 
 export const CartPage = () => {
-  const { data, error, isLoading } = useGetServiceDataQuery();
-
-  // useEffect(() => {
-  //   new window.CDEKWidget({
-  //     from: "Новосибирск",
-  //     root: "cdek-map",
-  //     apiKey: "yandex-api-key",
-  //     servicePath: "../../entities/test/lib/service.php",
-  //     defaultLocation: "Новосибирск",
-  //   });
-  // });
-
   return (
-    // <div className="grid md:grid-cols-[1fr_320px] gap-8 max-w-6xl mx-auto py-12 px-4 md:px-0">
     <div className="grid md:grid-cols-[1fr_450px] gap-8 py-4 px-2">
       <div className="grid gap-8">
-        Endpoint data: {data}
+        {/* <div
+          id="cdek-map"
+          style={{
+            width: `800px`,
+            height: `600px`,
+          }}
+        ></div> */}
         <CheckoutBlockCart />
         <CheckoutBlockContacts />
         <CheckoutBlockDelivery />
