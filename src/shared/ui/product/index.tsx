@@ -1,6 +1,8 @@
+import { useParams } from "react-router-dom";
 import { toast } from "sonner";
 
 import { usePostTestFunctionDataMutation } from "@/shared/api/baseApi";
+import { useGetProductByIdQuery } from "@/shared/api/baseApi";
 import {
   AmountSelect,
   Button,
@@ -17,6 +19,12 @@ import { Gallery } from "../gallery";
 
 export const Product = () => {
   const [postTestFunctionData, { data }] = usePostTestFunctionDataMutation();
+  const { productId } = useParams<{ productId: string }>();
+  const id = productId || "";
+
+  const { data: productsData, error, isLoading } = useGetProductByIdQuery(id);
+
+  const product = productsData?.products[0];
 
   const handleToast = () => {
     toast("ТОВАР ДОБАВЛЕН В КОРЗИНУ", {
@@ -28,6 +36,8 @@ export const Product = () => {
       },
     });
   };
+
+  const content = <p className="font-mono">{product?.description}</p>;
 
   const handleButtonClick = async () => {
     try {
@@ -42,15 +52,23 @@ export const Product = () => {
   return (
     <div className="grid sm:grid-cols-[400px_1fr] gap-8 sm:px-4">
       <div className="flex items-center flex-col h-fit gap-4">
-        <Gallery className="hidden sm:flex sm:flex-col md:grid md:grid-cols-2 gap-4" />
-        <BaseCarousel className="block sm:hidden" />
+        <Gallery
+          imageUrls={product?.offers[0].images}
+          productName={product?.name}
+          className="hidden sm:flex sm:flex-col md:grid md:grid-cols-2 gap-4"
+        />
+        <BaseCarousel
+          imageUrls={product?.offers[0].images}
+          productName={product?.name}
+          className="block sm:hidden"
+        />
       </div>
 
       <div className="flex px-2 sm:px-0 flex-col sm:order-first mb-16">
         <div className="flex flex-col gap-8">
-          <h1 className="text-3xl font-mono font-bold">GOAT [RED SPRING 2022] НАЗВАНИЕ КРУПНО..</h1>
+          <h1 className="text-3xl font-mono font-bold uppercase">{product?.name}</h1>
           <div className="flex items-center justify-between">
-            <span className="text-3xl font-mono">150 000 ₽</span>
+            <span className="text-3xl font-mono uppercase">{product?.maxPrice} ₽</span>
           </div>
         </div>
 
@@ -89,13 +107,3 @@ export const Product = () => {
     </div>
   );
 };
-
-const content = (
-  <p className="font-mono">
-    Immerse yourself in your favorite music, podcasts, or audiobooks with the Acme Wireless
-    Headphones. Featuring high-fidelity drivers and advanced noise-cancelling technology, you'll
-    experience a truly immersive listening experience, free from distractions. The ergonomic design
-    and soft, adjustable earcups ensure all-day comfort, making these headphones the perfect choice
-    for extended listening sessions.
-  </p>
-);

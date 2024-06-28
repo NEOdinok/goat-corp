@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { GetProductsResponse } from "types";
+import { GetProductsResponse, Product } from "types";
 
 import { TEST_TAG } from "./tags";
 
@@ -11,6 +11,9 @@ export const baseApi = createApi({
     getProducts: builder.query<GetProductsResponse, void>({
       query: () => `getProducts`,
     }),
+    getProductById: builder.query<GetProductsResponse, string>({
+      query: (id) => `getProductById?id=${id}`,
+    }),
     postTestFunctionData: builder.mutation({
       query: (body) => ({
         url: "test",
@@ -21,5 +24,10 @@ export const baseApi = createApi({
   }),
 });
 
-export const { useGetProductsQuery, useLazyGetProductsQuery, usePostTestFunctionDataMutation } =
-  baseApi;
+export const {
+  useGetProductsQuery,
+  useLazyGetProductsQuery,
+  usePostTestFunctionDataMutation,
+  useGetProductByIdQuery,
+  useLazyGetProductByIdQuery,
+} = baseApi;
