@@ -232,18 +232,25 @@ const CarouselNext = React.forwardRef<HTMLButtonElement, React.ComponentProps<ty
 CarouselNext.displayName = "CarouselNext";
 
 interface Props {
-  className?: undefined | string;
+  className?: string | undefined;
+  imageUrls?: Array<string | undefined>;
+  productName?: string | undefined;
 }
 
-const BaseCarousel = ({ className }: Props) => {
+const BaseCarousel = ({ className, imageUrls, productName }: Props) => {
   const classList = cn(className);
 
   return (
     <Carousel className={classList}>
       <CarouselContent>
-        {mockProducts.map(({ url, src, title }) => (
+        {imageUrls?.map((url) => (
           <CarouselItem key={url}>
-            <img key={url} src={src} className="w-full aspect-[1/1] object-cover" alt={title} />
+            <img
+              key={url}
+              src={url}
+              className="w-full aspect-[1/1] object-cover"
+              alt={`${productName} + preview`}
+            ></img>
           </CarouselItem>
         ))}
       </CarouselContent>
