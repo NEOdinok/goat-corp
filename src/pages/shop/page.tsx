@@ -16,10 +16,10 @@ export const ShopPage = () => {
       {isLoading ? (
         <div className="text-3xl">Загрузка...</div>
       ) : (
-        data?.products.map(({ id, name, imageUrl, maxPrice, manufacturer }) => (
+        data?.products.map(({ id, name, imageUrl: mainImg, maxPrice, manufacturer }) => (
           <Card className="cursor-pointer group" key={id} onClick={() => handleSelect(id)}>
             <img
-              src={imageUrl}
+              src={mainImg}
               alt={name}
               className="group-hover:opacity-70 group-hover:border-2 group-hover:border-primary"
             />
