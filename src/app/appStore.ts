@@ -11,6 +11,8 @@ import {
 } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 
+import { baseApi } from "@/shared/api";
+
 import { rootReducer } from "./rootReducer";
 
 const persistConfig = {
@@ -28,7 +30,7 @@ export function makeStore() {
         serializableCheck: {
           ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
         },
-      }),
+      }).concat(baseApi.middleware),
   });
 
   return store;

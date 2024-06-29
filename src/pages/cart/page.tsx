@@ -22,6 +22,27 @@ import {
 
 import speed2 from "../../shared/assets/images/speed2.gif";
 
+const BaseFormInput = ({
+  fieldName,
+  label,
+  placeholder,
+  type,
+}: {
+  fieldName: string;
+  label: string;
+  placeholder?: string;
+  type?: string;
+}) => {
+  return (
+    <div className="grid gap-2">
+      <Label htmlFor={fieldName} className="font-mono">
+        {label}
+      </Label>
+      <Input id={fieldName} placeholder={placeholder} className="font-mono" type={type} />
+    </div>
+  );
+};
+
 const CheckoutBlockCart = () => {
   return (
     <Card className="border-0 sm:border">
@@ -217,36 +238,21 @@ const CheckoutBlockTotal = () => {
 
 export const CartPage = () => {
   return (
-    // <div className="grid md:grid-cols-[1fr_320px] gap-8 max-w-6xl mx-auto py-12 px-4 md:px-0">
     <div className="grid md:grid-cols-[1fr_450px] gap-8 py-4 px-2">
       <div className="grid gap-8">
+        {/* <div
+          id="cdek-map"
+          style={{
+            width: `800px`,
+            height: `600px`,
+          }}
+        ></div> */}
         <CheckoutBlockCart />
         <CheckoutBlockContacts />
         <CheckoutBlockDelivery />
         <CheckoutBlockPayment />
       </div>
       <CheckoutBlockTotal />
-    </div>
-  );
-};
-
-const BaseFormInput = ({
-  fieldName,
-  label,
-  placeholder,
-  type,
-}: {
-  fieldName: string;
-  label: string;
-  placeholder?: string;
-  type?: string;
-}) => {
-  return (
-    <div className="grid gap-2">
-      <Label htmlFor={fieldName} className="font-mono">
-        {label}
-      </Label>
-      <Input id={fieldName} placeholder={placeholder} className="font-mono" type={type} />
     </div>
   );
 };
