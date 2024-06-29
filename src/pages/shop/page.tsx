@@ -17,7 +17,11 @@ export const ShopPage = () => {
         <div className="text-3xl">Загрузка...</div>
       ) : (
         data?.products.map(({ id, name, imageUrl: mainImg, maxPrice, manufacturer }) => (
-          <Card className="cursor-pointer group" key={id} onClick={() => handleSelect(id)}>
+          <Card
+            className="cursor-pointer group flex flex-col justify-between"
+            key={id}
+            onClick={() => handleSelect(id)}
+          >
             <img
               src={mainImg}
               alt={name}
