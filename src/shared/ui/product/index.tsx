@@ -22,7 +22,7 @@ export const Product = () => {
   const { productId } = useParams<{ productId: string }>();
   const id = productId || "";
 
-  const { data: productsData, error, isLoading } = useGetProductByIdQuery(id);
+  const { data: productsData, isLoading } = useGetProductByIdQuery(id);
 
   const product = productsData?.products[0];
 
@@ -49,7 +49,9 @@ export const Product = () => {
     }
   };
 
-  return (
+  return isLoading ? (
+    <div className="text-mono">Загрузка</div>
+  ) : (
     <div className="grid sm:grid-cols-[400px_1fr] gap-8 sm:px-4">
       <div className="flex items-center flex-col h-fit gap-4">
         <Gallery

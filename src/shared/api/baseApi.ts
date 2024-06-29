@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { GetProductsResponse, Product } from "types";
+import { GetProductsResponse } from "types";
 
 import { TEST_TAG } from "./tags";
 

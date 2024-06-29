@@ -24,7 +24,7 @@ interface Offer {
   prices: OfferPrice[];
   purchasePrice: number;
   vatRate: string;
-  properties: any[];
+  properties?: string[];
   quantity: number;
   active: boolean;
   unit: {
